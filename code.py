@@ -475,11 +475,11 @@ for _ in range(NUMBERGENR):
     PARASITE = PARASITENEWGEN
     
     
-#Effect of I on B
+#Effect of I on P
 i = 0
 j = 3
-IONB    = []
-IONBVAR = []
+IONP    = []
+IONPVAR = []
 
 #At every time point
 for t in range(CURRENTGEN):
@@ -490,15 +490,15 @@ for t in range(CURRENTGEN):
     for ind in range(mylength):
         myvec1 += (1- np.multiply(2,HAM_INF[t][ind][i][j])/DOMAINSIZE)
         myvec2.append((1- np.multiply(2,HAM_INF[t][ind][i][j])/DOMAINSIZE))
-    IONBVAR.append(np.var(myvec2))
-    IONB.append(myvec1/NUMIND)
+    IONPVAR.append(np.var(myvec2))
+    IONP.append(myvec1/NUMIND)
 
 
 #Effect of U on R    
 i = 1-1
 j = 4-1
-UPONRECEPT   = []
-UPONRECEPTVAR = []
+UONR   = []
+UONRVAR = []
 
 #At every time point
 for t in range(CURRENTGEN):
@@ -508,16 +508,16 @@ for t in range(CURRENTGEN):
     for ind in range(2000):
         myvec1 += (1- np.multiply(2,HAM_TIME[t][ind][i][j])/DOMAINSIZE)
         myvec2.append((1- np.multiply(2,HAM_TIME[t][ind][i][j])/DOMAINSIZE))
-    UPONRECEPTVAR.append(np.var(myvec2))
-    UPONRECEPT.append(myvec1/NUMIND)
+    UONRVAR.append(np.var(myvec2))
+    UONR.append(myvec1/NUMIND)
     
     
 
 #Effect of D on I 
 i = 3-1
 j = 5-1
-DOWNONRECEPT   = []
-DOWNONRECEPTVAR = []
+DONI   = []
+DONIVAR = []
 
 #At every time point
 for t in range(CURRENTGEN):
@@ -527,15 +527,15 @@ for t in range(CURRENTGEN):
     for ind in range(2000):
         myvec1 += (1- np.multiply(2,HAM_TIME[t][ind][i][j])/DOMAINSIZE)
         myvec2.append((1- np.multiply(2,HAM_TIME[t][ind][i][j])/DOMAINSIZE))
-    DOWNONRECEPTVAR.append(np.var(myvec2))
-    DOWNONRECEPT.append(myvec1/NUMIND)
+    DONIVAR.append(np.var(myvec2))
+    DONI.append(myvec1/NUMIND)
 
 
 #Effect of A on U   
 i = 4-1
 j = 2-1
-UPACT   = []
-UPACTVAR = []
+AONU   = []
+AONUVAR = []
 
 #At every time point
 for t in range(CURRENTGEN):
@@ -545,16 +545,16 @@ for t in range(CURRENTGEN):
     for ind in range(2000):
         myvec1 += (1- np.multiply(2,HAM_TIME[t][ind][i][j])/DOMAINSIZE)
         myvec2.append((1- np.multiply(2,HAM_TIME[t][ind][i][j])/DOMAINSIZE))
-    UPACTVAR.append(np.var(myvec2))
-    UPACT.append(myvec1/NUMIND)
+    AONUVAR.append(np.var(myvec2))
+    AONU.append(myvec1/NUMIND)
  
  
 
 #Effect of A on D   
 i = 5-1
 j = 2-1
-DOWNACT   = []
-DOWNACTVAR = []
+AOND   = []
+AONDVAR = []
 
 #At every time point
 for t in range(CURRENTGEN):
@@ -564,8 +564,8 @@ for t in range(CURRENTGEN):
     for ind in range(2000):
         myvec1 += (1- np.multiply(2,HAM_TIME[t][ind][i][j])/DOMAINSIZE)
         myvec2.append((1- np.multiply(2,HAM_TIME[t][ind][i][j])/DOMAINSIZE))
-    DOWNACTVAR.append(np.var(myvec2))
-    DOWNACT.append(myvec1/NUMIND)
+    AONDVAR.append(np.var(myvec2))
+    AOND.append(myvec1/NUMIND)
     
     
     
@@ -653,30 +653,30 @@ with open(f'VARFITH_{random_number}.json', 'w') as f:
 with open(f'VARFITP_{random_number}.json', 'w') as f:
     json.dump(VARFITP, f)
 
-with open(f'IONB_{random_number}.json', 'w') as f:
-    json.dump(IONB, f)
-with open(f'IONBVAR_{random_number}.json', 'w') as f:
-    json.dump(IONBVAR, f)
+with open(f'IONP_{random_number}.json', 'w') as f:
+    json.dump(IONP, f)
+with open(f'IONPVAR_{random_number}.json', 'w') as f:
+    json.dump(IONPVAR, f)
 
-with open(f'UPONRECEPT_{random_number}.json', 'w') as f:
-    json.dump(UPONRECEPT, f)
-with open(f'UPONRECEPTVAR_{random_number}.json', 'w') as f:
-    json.dump(UPONRECEPTVAR, f)
+with open(f'UONR_{random_number}.json', 'w') as f:
+    json.dump(UONR, f)
+with open(f'UONRVAR_{random_number}.json', 'w') as f:
+    json.dump(UONRVAR, f)
 
-with open(f'DOWNONRECEPT_{random_number}.json', 'w') as f:
-    json.dump(DOWNONRECEPT, f)
-with open(f'DOWNONRECEPTVAR_{random_number}.json', 'w') as f:
-    json.dump(DOWNONRECEPTVAR, f)
+with open(f'DONI_{random_number}.json', 'w') as f:
+    json.dump(DONI, f)
+with open(f'DONIVAR_{random_number}.json', 'w') as f:
+    json.dump(DONIVAR, f)
 
-with open(f'UPACT_{random_number}.json', 'w') as f:
-    json.dump(UPACT, f)
-with open(f'UPACTVAR_{random_number}.json', 'w') as f:
-    json.dump(UPACTVAR, f)
+with open(f'AONU_{random_number}.json', 'w') as f:
+    json.dump(AONU, f)
+with open(f'AONUVAR_{random_number}.json', 'w') as f:
+    json.dump(AONUVAR, f)
 
-with open(f'DOWNACT_{random_number}.json', 'w') as f:
-    json.dump(DOWNACT, f)
-with open(f'DOWNACTVAR_{random_number}.json', 'w') as f:
-    json.dump(DOWNACTVAR, f)
+with open(f'AOND_{random_number}.json', 'w') as f:
+    json.dump(AOND, f)
+with open(f'AONDVAR_{random_number}.json', 'w') as f:
+    json.dump(AONDVAR, f)
 
 RATEINPUT = [array.tolist() for array in RATEINPUT]
 RATEOUPUT = [array.tolist() for array in RATEOUPUT]
